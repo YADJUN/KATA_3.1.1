@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<table border="1">
+
+    <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Age</th>
+        <th> Operations</th>
+
+    </tr>
+
+
+    <tbody>
+    <tr th:each="user : ${users}">
+
+        <td th:text="${user.getUsername()}" width=100/>
+        <td th:text="${user.getColor()}" width="50"/>
+        <td th:text="${user.getAge()}" width="50"></td>
+        <td>
+            <a th:href="@{users/get(id= ${user.getId()})}"> Edit </a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<br>
+<a href="/users/save">Add new user</a>
+<br>
+
+</body>
+</html>
